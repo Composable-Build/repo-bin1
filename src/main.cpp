@@ -1,9 +1,13 @@
 #include <iostream>
-#ifndef PLATFORM_NAME
-#define PLATFORM_NAME "unknown"
-#endif
-#include "bin_info.h"
-int main() {
-    std::cout << BIN_NAME << " on " << PLATFORM_NAME << " : " << BIN_MESSAGE << std::endl;
+#include <string>
+#include "binary_info.h"
+#include "version.h"
+int main(int argc, char** argv) {
+    if (argc > 1) {
+        std::string a = argv[1];
+        if (a == "--version") { std::cout << get_version() << std::endl; return 0; }
+        if (a == "--name")    { std::cout << BINARY_NAME   << std::endl; return 0; }
+    }
+    std::cout << BINARY_NAME << " " << get_version() << ": " << BINARY_MESSAGE << std::endl;
     return 0;
 }
