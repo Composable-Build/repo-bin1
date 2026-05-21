@@ -1,0 +1,19 @@
+name: build
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build -DPLATFORM_NAME="linux"
+      - run: cmake --build build
+      - run: |
+          mkdir -p dist
+          cp build/binary-demo dist/
+          tar -czf dist/binaries.tar.gz -C dist binary-demo
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries
+          path: dist/binaries.tar.gz
