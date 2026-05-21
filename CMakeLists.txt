@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(repo_binaries CXX)
+project(repo_bin1 CXX)
 set(CMAKE_CXX_STANDARD 17)
-add_executable(binary-demo src/main.cpp)
-target_compile_definitions(binary-demo PRIVATE PLATFORM_NAME="${PLATFORM_NAME}")
+add_executable(binary1-demo src/main.cpp)
+target_compile_definitions(binary1-demo PRIVATE PLATFORM_NAME="${PLATFORM_NAME}")

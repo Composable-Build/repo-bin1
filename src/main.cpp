@@ -2,7 +2,8 @@
 #ifndef PLATFORM_NAME
 #define PLATFORM_NAME "unknown"
 #endif
+#include "bin_info.h"
 int main() {
-    std::cout << "binary-demo on " << PLATFORM_NAME << std::endl;
+    std::cout << BIN_NAME << " on " << PLATFORM_NAME << " : " << BIN_MESSAGE << std::endl;
     return 0;
 }
